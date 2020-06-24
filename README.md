@@ -1,13 +1,13 @@
 # Introduction
 This exam is designed to test your existing flutter skills and your ability to learn and adapt to new challenges. You are expected to be familiar with working in the following areas
 
--   Implementing network requests using http library
+-   Implementing network requests using **http** package
 
--   Working with sqlite database using sqflite or an ORM of your choice
+-   Working with sqlite database using **sqflite** or an ORM of your choice (using **Floor** [https://pub.dev/packages/floor] or **Moor**[https://pub.dev/packages/moor] is recommended)
     
--   Using platform channels to communicate with native android activities/services
+-   Using **platform channels** to communicate with native android activities/services
     
--   Handling state management using the Provider package
+-   Handling state management using **Provider** package
 
 
 # What you will make
