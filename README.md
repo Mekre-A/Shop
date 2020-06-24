@@ -110,7 +110,8 @@ The homepage should display the lists of products in tabs of categories
             {
                 "product":"2",
                 "quantity":4
-            }]
+            }
+        ]
     }
 **Note that the *“name”* field has to be a unique string so use uuid v4 to generate one.**
 
