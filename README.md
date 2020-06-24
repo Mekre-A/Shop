@@ -7,7 +7,7 @@ This exam is designed to test your existing flutter skills and your ability to l
     
 -   Using **platform channels** to communicate with native android activities/services
     
--   Handling state management using **Provider** package
+-   Handling state management using the **Provider** package (and ChangeNotifierProvider)
 
 
 # What you will make
@@ -47,7 +47,7 @@ The homepage should display the lists of products in tabs of categories
 
 
 # API Endpoints
- **The api root url is https://finbittesting.pythonanywhere.com/**
+ **The API root url is https://finbittesting.pythonanywhere.com/**
  
   # *[GET]*  **/categories**
 
