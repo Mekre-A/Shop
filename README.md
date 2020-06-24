@@ -22,9 +22,9 @@ You will be implementing a portion of a shopping app. You will consume a web API
 
     # Splashscreen tasks
     
- - Fetch a list of categories from the web API and store this list
+ - Fetch a list of categories from [the web API route](#get-categories) and store this list
        of categories in an Sqlite database
- - Fetch a list of products for each category and save these lists
+ - Fetch a list of products for each category from [the web API route](#get-categoriescategory_id) and save these lists
        in the database
 
  - Once these are done redirect the user to the homepage
@@ -39,9 +39,9 @@ The homepage should display the lists of products in tabs of categories
 
 -   Design a shopping cart dialog to show items added to the shopping cart and a checkout button
 
--   When the checkout button is clicked send a post request containing the contents of the shopping cart to the route provided.
+-   When the checkout button is clicked send a post request containing the contents of the shopping cart to [the route provided here](#post-carts).
 
--   Add a floating action button in the homepage which, when clicked, displays the shopping cart dialog
+-   Add a floating action button in the homepage which, when clicked, displays the shopping cart dialog that u have made
 
 -   Finally show a native android notification to the user once the user clicks checkout (using a method channel) with a notification title of “Checkout successful!” 
 
@@ -113,3 +113,6 @@ The homepage should display the lists of products in tabs of categories
             }]
     }
 **Note that the *“name”* field has to be a unique string so use uuid v4 to generate one.**
+
+
+# **Good luck!**
