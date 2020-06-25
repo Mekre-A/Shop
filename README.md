@@ -1,5 +1,6 @@
 # **Introduction**
-This exam is designed to test your existing flutter skills and your ability to learn and adapt to new challenges. You are expected to be familiar with working in the following areas
+This exam is designed to test your existing flutter skills and your ability to learn and adapt to new challenges. Please read the following instructions throughly before proceeding to implementation.  
+You are expected to be familiar with working in the following areas
 
 -   Implementing network requests using **http** package
 
@@ -32,19 +33,28 @@ You will be implementing a portion of a shopping app. You will consume a web API
 	# **Homepage tasks**  
 
 
-The homepage should display the lists of products in tabs of categories
--   This list of products should be displayed in a grid. Each product in the list should have: **an image, a name, a price and a button to add the item to the shopping cart**
+-   The homepage should display the lists of products in tabs (in their respective categories)
 
--   When this item is clicked it should show the **product image, name, price, description and a button to add the item to the shopping cart** in a SimpleDialog 
+-   This list of products should be displayed in a grid. 
+
+-   Each product list item in the grid should have: **an image, a name, a price and a button to add the item to the shopping cart**
+
+-   When an item is clicked it should show the **product image, name, price, description and a button to add the item to the shopping cart** in a **SimpleDialog**  
+    **(Note: 👆 this step is a Bonus)**
+
+    # **Shopping cart tasks**
 
 
--   Design a shopping cart dialog to show items added to the shopping cart along with their quantities. Each item in this list shoud also have a **+** and a **-** button to increment or decrement the quantity.The dialog should also show the total price of the items in the cart and a checkout button
+-   Design a shopping cart dialog to show items added to the shopping cart along with their quantities. 
+
+-   Each item in this list shoud also have a **+** and a **-** button to increment or decrement the quantity.
+-   The dialog should also show the *total price* of the items in the cart and a checkout button
 
 -   When the checkout button is clicked send a post request containing the contents of the shopping cart to [the route provided here](#post-carts).
 
 -   Add a **FloatingActionButton** (or an **IconButton** on the Appbar) in the homepage which, when clicked, displays the shopping cart dialog that u have made
 
--   Finally show a native android notification to the user once the user clicks checkout (using a method channel) with a notification title of “Checkout successful!” 
+-   Finally show a native android notification to the user once the user clicks checkout **(using a method channel)** with a notification title of **“Checkout successful!”**
 
 
 # **API Endpoints**
