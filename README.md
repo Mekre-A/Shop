@@ -33,12 +33,12 @@ You will be implementing a portion of a shopping app. You will consume a web API
 
 
 The homepage should display the lists of products in tabs of categories
--   This list of products should be displayed in a grid. Each product in the list should have: **an image, a name and a button to add the item to the shopping cart**
--   
+-   This list of products should be displayed in a grid. Each product in the list should have: **an image, a name, a price and a button to add the item to the shopping cart**
+
+-   When this item is clicked it should show the **product image, name, price, description and a button to add the item to the shopping cart** in a SimpleDialog 
 
 
-
--   Design a shopping cart dialog to show items added to the shopping cart and a checkout button
+-   Design a shopping cart dialog to show items added to the shopping cart along with their quantities. Each item in this list shoud also have a **+** and a **-** button to increment or decrement the quantity.The dialog should also show the total price of the items in the cart and a checkout button
 
 -   When the checkout button is clicked send a post request containing the contents of the shopping cart to [the route provided here](#post-carts).
 
@@ -48,7 +48,7 @@ The homepage should display the lists of products in tabs of categories
 
 
 # **API Endpoints**
- **The API root url is https://finbittesting.pythonanywhere.com/**
+ **The API root url is https://finbittesting.pythonanywhere.com**
  
   # *[GET]*  **/categories**
 
