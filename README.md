@@ -35,7 +35,7 @@ You will be implementing a portion of a shopping app. You will consume a web API
 
 -   The homepage should display the lists of products in tabs (in their respective categories)
 
--   This list of products should be displayed in a grid. 
+-   This list of products should be displayed in a grid or alist. 
 
 -   Each product list item in the grid should have: **an image, a name, a price and a button to add the item to the shopping cart**
 
