@@ -126,8 +126,8 @@ You will be implementing a portion of a shopping app. You will consume a web API
     }
 **Note that the *“name”* field has to be a unique string so use uuid v4 to generate one.**
 
-# **Additional(Bonus) tasks**
-- When a product is clicked on from the list display its details(image, name, price and description) on a new Details page instead of just a simple dialog. The page should also have the add to cart button. You can also implement a simple hero animation using the **Hero** widget.
+# **Additional(Bonus) task suggestions**
+- When a product is clicked on from the list display its details (image, name, price and description) on a new Details page instead of just a simple dialog. The page should also have the add to cart button. You can also implement a simple hero animation using the **Hero** widget to make a smooth transtition.
 - Handling offline mode. Since the data will be cached in the local database u can display the data and let the user know that they are offline. You can also use a **CachedNetworkImage** to show cached product images.
 - Handling the UIs responsiveness by testing it on different device sizes and optimizing the UI using media queries
 
