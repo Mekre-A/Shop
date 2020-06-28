@@ -59,7 +59,7 @@ class _CartBuilderState extends State<CartBuilder> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Container(
-                              width:200,
+                              width:MediaQuery.of(context).orientation == Orientation.portrait ? MediaQuery.of(context).size.width/2 : MediaQuery.of(context).size.width/3,
                               child: Text(
                                 widget.list[index].getProduct.name,
                                 overflow:TextOverflow.ellipsis,

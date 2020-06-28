@@ -61,7 +61,8 @@ class ProductListLandscape extends StatelessWidget{
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width:150,
+                        width:MediaQuery.of(context).size.width/4,
+
                         child: Text(
                           e.products[index].name,
                           overflow: TextOverflow.ellipsis,

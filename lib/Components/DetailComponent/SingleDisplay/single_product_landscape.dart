@@ -45,6 +45,7 @@ class SingleProductLandscape extends StatelessWidget{
                 child: Text(
                   categoryProduct.products[index].name,
                   maxLines:1,
+                  textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
               ),
