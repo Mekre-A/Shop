@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutterexamstarter/pages/homepage.dart';
+import 'file:///D:/shop/lib/Components/HomePageComponent/homepage.dart';
+import 'package:flutterexamstarter/Components/SplashScreenComponent/splash_screen.dart';
+import 'package:flutterexamstarter/Provider/MasterProvider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(create: (BuildContext context) => MasterProvider(), child: MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,11 +14,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
+        fontFamily: 'QuickSand',
         visualDensity: VisualDensity.adaptivePlatformDensity,
+
       ),
-      home: HomePage(),
+
+      home: SplashScreen(),
     );
   }
 }

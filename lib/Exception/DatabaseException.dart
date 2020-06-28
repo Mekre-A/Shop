@@ -1,0 +1,3 @@
+class SqDatabaseException implements Exception{
+
+}
