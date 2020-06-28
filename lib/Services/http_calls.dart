@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -9,12 +10,15 @@ import 'package:flutterexamstarter/Provider/MasterProvider.dart';
 import 'package:flutterexamstarter/Services/database.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:uuid/uuid.dart';
 
 class HttpCalls {
 
   static const String baseUrl = "https://finbittesting.pythonanywhere.com";
 
   static const String categories = "/categories";
+
+  static const String carts = "/carts/";
 
 
   static const Map<String,String> requestHeader = {'Content-Type':'application/json','Accept':'application/json'};
@@ -87,6 +91,27 @@ class HttpCalls {
       }
     }).catchError((onError){
       handleOnError(onError);
+      return false;
+    });
+  }
+
+  static Future<bool> makePostRequest(List<Map<String,dynamic>> orders)async{
+    Uuid uuid = Uuid();
+    return await http.post(
+      baseUrl + carts,
+      headers: requestHeader,
+      body: jsonEncode({
+        'name': uuid.v4(),
+        'orders':orders
+      })
+    ).then((value){
+      if(value.statusCode == 200 || value.statusCode == 201 ){
+        return true;
+      }
+
+      return false;
+    }).catchError((onError){
+      print(onError);
       return false;
     });
   }

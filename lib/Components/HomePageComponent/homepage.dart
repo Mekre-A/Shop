@@ -6,7 +6,9 @@ import 'package:flutterexamstarter/Components/HomePageComponent/widgets/ListOfPr
 import 'package:flutterexamstarter/Components/HomePageComponent/widgets/ListOfProduct/list_products_portrait.dart';
 import 'package:flutterexamstarter/Components/HomePageComponent/widgets/list_item.dart';
 import 'package:flutterexamstarter/Provider/MasterProvider.dart';
+import 'package:flutterexamstarter/Services/http_calls.dart';
 import 'package:flutterexamstarter/Services/method_channel.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -68,14 +70,45 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(50.0)
                     ),
                     color: Colors.green,
-                    onPressed: (){
-                      masterProvider.setCartItems = [];
-                      masterProvider.setCartListTracker = [];
-                      masterProvider.setTotal = 0.0;
-                      MethodChannelNotification.notify();
-                      Navigator.pop(context);
+                    onPressed: ()async{
+                      List<Map<String,dynamic>> orders = [];
+                      masterProvider.getCartItemList.forEach((element) {
+                        orders.add({
+                          'product':element.getProduct.id.toString(),
+                          'quantity':element.getCount
+                        });
+                      });
+                      masterProvider.setCheckingOut = true;
+                      bool status = await HttpCalls.makePostRequest(orders);
+                      masterProvider.setCheckingOut = false;
+                      if(status){
+                        masterProvider.setCartItems = [];
+                        masterProvider.setCartListTracker = [];
+                        masterProvider.setTotal = 0.0;
+                        MethodChannelNotification.notify();
+                        Navigator.pop(context);
+                      }
+                      else{
+                        Fluttertoast.showToast(
+                            msg: "Please try again",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.black,
+                            fontSize: 16.0);
+                      }
+
                     },
-                  )
+                  ),
+                  Consumer<MasterProvider>(builder: ((context,provider,child){
+                    if(provider.getCheckingOut){
+                      return Center(child: CircularProgressIndicator());
+                    }
+                    else{
+                      return Container();
+                    }
+                  }),)
 
 
 

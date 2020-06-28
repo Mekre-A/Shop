@@ -54,6 +54,14 @@ class MasterProvider extends ChangeNotifier{
 
   }
 
+  bool _checkingOut = false;
+  bool get getCheckingOut => _checkingOut;
+  set setCheckingOut(bool value){
+    _checkingOut = value;
+    notifyListeners();
+  }
+
+
   double _total = 0.0;
   double get getTotal => _total;
   set setTotalBySingleValue(double value){
