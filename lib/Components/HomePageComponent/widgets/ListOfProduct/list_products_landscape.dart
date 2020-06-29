@@ -54,20 +54,16 @@ class ProductListLandscape extends StatelessWidget{
                   },
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        width:MediaQuery.of(context).size.width/4,
-
-                        child: Text(
-                          e.products[index].name,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontWeight: FontWeight.bold),),
-                      ),
+                      Text(
+                        e.products[index].name,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontWeight: FontWeight.bold),),
                       Text("${e.products[index].price} birr",),
                       SizedBox(height: 10,),
                       RaisedButton(

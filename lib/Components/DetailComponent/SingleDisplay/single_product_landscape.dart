@@ -36,76 +36,80 @@ class SingleProductLandscape extends StatelessWidget{
             placeholder: (context,url) => CircularProgressIndicator(),
           ),
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: 400,
-                child: Text(
+          Container(
+            width: MediaQuery.of(context).size.width/2.5,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
                   categoryProduct.products[index].name,
                   maxLines:1,
-                  textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
-              ),
-              Text("${categoryProduct.products[index].description} ",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 20)),
-              Text("${categoryProduct.products[index].price} birr",),
-              SizedBox(height: 10,),
-              RaisedButton(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:8.0,vertical: 12.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Icon(Icons.add_shopping_cart,color: Colors.white,),
-                      Text("Add to cart",style: TextStyle(color: Colors.white),),
-                    ],
-                  ),
+                Text(
+                    "${categoryProduct.products[index].description} ",
+                    style: TextStyle(fontWeight: FontWeight.w500,fontSize: 20),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines:2
                 ),
-                onPressed: (){
-                  if(masterProvider.getCartListTracker.length == 0){
-                    masterProvider.addToTrackerList = {
-                      "category_id":categoryProduct.id,
-                      "product_id":categoryProduct.products[index].id,
-
-                    };
-                    masterProvider.addToCartItemList = CartItem(count: 1, product: categoryProduct.products[index]);
-                    masterProvider.setTotalBySingleValue = categoryProduct.products[index].price;
-                    Navigator.pop(context);
-                  }
-                  else {
-                    bool isItemFound = false;
-                    for( Map map in masterProvider.getCartListTracker){
-                      if(map['category_id'] == categoryProduct.id && map['product_id'] == categoryProduct.products[index].id){
-                        masterProvider.addCountOfCartItem = map;
-                        masterProvider.setTotalBySingleValue = categoryProduct.products[index].price;
-                        isItemFound = true;
-                        break;
-                      }
-                    }
-                    if(isItemFound){
-                      print("Item found");
-                    }
-                    else{
+                Text("${categoryProduct.products[index].price} birr",),
+                SizedBox(height: 10,),
+                RaisedButton(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal:8.0,vertical: 12.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Icon(Icons.add_shopping_cart,color: Colors.white,),
+                        Text("Add to cart",style: TextStyle(color: Colors.white),),
+                      ],
+                    ),
+                  ),
+                  onPressed: (){
+                    if(masterProvider.getCartListTracker.length == 0){
                       masterProvider.addToTrackerList = {
                         "category_id":categoryProduct.id,
-                        "product_id":categoryProduct.products[index].id
+                        "product_id":categoryProduct.products[index].id,
+
                       };
                       masterProvider.addToCartItemList = CartItem(count: 1, product: categoryProduct.products[index]);
                       masterProvider.setTotalBySingleValue = categoryProduct.products[index].price;
+                      Navigator.pop(context);
                     }
-                    Navigator.pop(context);
+                    else {
+                      bool isItemFound = false;
+                      for( Map map in masterProvider.getCartListTracker){
+                        if(map['category_id'] == categoryProduct.id && map['product_id'] == categoryProduct.products[index].id){
+                          masterProvider.addCountOfCartItem = map;
+                          masterProvider.setTotalBySingleValue = categoryProduct.products[index].price;
+                          isItemFound = true;
+                          break;
+                        }
+                      }
+                      if(isItemFound){
+                        print("Item found");
+                      }
+                      else{
+                        masterProvider.addToTrackerList = {
+                          "category_id":categoryProduct.id,
+                          "product_id":categoryProduct.products[index].id
+                        };
+                        masterProvider.addToCartItemList = CartItem(count: 1, product: categoryProduct.products[index]);
+                        masterProvider.setTotalBySingleValue = categoryProduct.products[index].price;
+                      }
+                      Navigator.pop(context);
 
-                  }
-                },
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0)
-                ),
-                color: Colors.green,
-              )
-            ],
+                    }
+                  },
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0)
+                  ),
+                  color: Colors.green,
+                )
+              ],
+            ),
           ),
         ]
     );

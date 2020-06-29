@@ -26,7 +26,7 @@ class _CartBuilderState extends State<CartBuilder> {
         itemCount: widget.list.length,
         itemBuilder: ((BuildContext context, int index){
           return Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.symmetric(vertical:10.0,horizontal: 0.0),
             child: Column(
 
               children: <Widget>[
@@ -66,6 +66,7 @@ class _CartBuilderState extends State<CartBuilder> {
                                 maxLines: 1,
                                 style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                             ),
+
                             Padding(
                               padding: const EdgeInsets.only(right:10.0),
                               child: Text("${widget.list[index].getProduct.price} birr",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14,color: Colors.grey),),
