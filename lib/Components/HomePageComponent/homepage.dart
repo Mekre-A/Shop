@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     MasterProvider masterProvider = Provider.of<MasterProvider>(context,listen:false);
+
     return DefaultTabController(
       length: masterProvider.getCategories.length,
       child: Scaffold(
